@@ -185,9 +185,6 @@ let round = 1;
 while (characters.filter((char) => char.isAlive()).length > 1) {
   console.log(`Round ${round}:\n----------------------`);
 
-  // Shuffle characters (Random)
-  // characters.sort(() => generateRandomValue(1) - 0.5);
-
   // Define alive characters and sort them by speed
   let aliveCharacters = characters.filter((char) => char.isAlive());
   aliveCharacters.sort((a, b) => b.spd - a.spd);
