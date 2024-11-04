@@ -197,7 +197,7 @@ while (characters.filter((char) => char.isAlive()).length > 1) {
     let targets = aliveCharacters.filter((char) => char !== attacker);
 
     // If all characters are dead, break the loop
-    if (targets.length === 0) break; // If all characters are dead, break the loop
+    if (targets.length === 0) break;
 
     // Randomly select a target and attack
     let target = targets[generateRandomValue(targets.length - 1)];
