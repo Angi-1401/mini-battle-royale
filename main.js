@@ -151,6 +151,8 @@ class Warrior extends Character {
    * Randomly selects a skill from the character's list of skills and inflicts
    * damage on a target, with a special message if the ultimate skill is used.
    * @param {object} target - The character who receives the attack.
+   * If the skill selected is the ultimate skill, the skill is removed from the
+   * character's list of skills, preventing a new use.
    */
   attack(target) {
     let skillIndex = generateRandomValue(this.skills.length - 1);
@@ -180,7 +182,7 @@ while (characters.filter((char) => char.isAlive()).length > 1) {
   console.log(`Round ${round}:\n----------------------`);
 
   // Shuffle characters (Random)
-  characters.sort(() => generateRandomValue(1) - 0.5);
+  // characters.sort(() => generateRandomValue(1) - 0.5);
 
   // Define alive characters and sort them by speed
   let aliveCharacters = characters.filter((char) => char.isAlive());
