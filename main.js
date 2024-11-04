@@ -175,7 +175,7 @@ const characters = [
 // Initialize round counter
 let round = 1;
 
-// Main game lo
+// Main game loop
 while (characters.filter((char) => char.isAlive()).length > 1) {
   console.log(`Round ${round}:\n----------------------`);
 
