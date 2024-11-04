@@ -213,7 +213,3 @@ if (winner) {
 } else {
   console.log(`It's a draw!`);
 }
-
-// I did my best to document the code so people have an idea of what
-//the hell is happening here.
-// Pls, enjoy. I din't 7-7
