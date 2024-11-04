@@ -46,9 +46,13 @@ class Character {
     let dmg = Math.max(1, Math.floor(atkPower - defPower)); // At least 1 damage is dealt
     target.takeDmg(dmg);
 
-    console.log(`${this.name} used ${skill.name} on ${target.name}! Deals ${dmg.toFixed(0)} damage! ${target.name} has ${target.hp.toFixed(0)} HP left!`);
+    console.log(`${this.name} used ${skill.name} on ${target.name}!`);
+    console.log(`Deals ${dmg.toFixed(0)} damage!`);
+    console.log(`${target.name} has ${target.hp.toFixed(0)} HP left!`);
+    console.log(`----------------------`);
+
     if (!target.isAlive()) {
-      console.log(`${target.name} has fainted! :(`);
+      console.log(`${target.name} has fainted! :(\n----------------------`);
     }
   }
 
@@ -75,7 +79,7 @@ class Archer extends Character {
       { name: "Bullseye", multiplier: 1.2 },
       { name: "Arrow Rain", multiplier: 1.3 },
       { name: "Snipe", multiplier: 1.5 },
-      { name: "Cross Fire", multiplier: 1.7 } // Ultimate skill
+      { name: "Cross Fire", multiplier: 1.7 }, // Ultimate skill
     ];
   }
 
@@ -89,7 +93,7 @@ class Archer extends Character {
     let skill = this.skills[index];
     if (index === 4) {
       console.log(`OMG! ${this.name} is using its ultimate skill!`);
-      this.skills.splice(index, 1)
+      this.skills.splice(index, 1);
     }
     super.inflictDmg(target, skill);
   }
@@ -107,21 +111,21 @@ class Mage extends Character {
       { name: "Magic: Javeline", multiplier: 1.3 },
       { name: "Magic: Lances", multiplier: 1.4 },
       { name: "Magic: Impact", multiplier: 1.6 },
-      { name: "Magic: Finale", multiplier: 2.0 } // Ultimate skill
+      { name: "Magic: Finale", multiplier: 2.0 }, // Ultimate skill
     ];
   }
 
   /**
- * Randomly selects a skill from the character's list of skills and inflicts
- * damage on a target, with a special message if the ultimate skill is used.
- * @param {object} target - The character who receives the attack.
- */
+   * Randomly selects a skill from the character's list of skills and inflicts
+   * damage on a target, with a special message if the ultimate skill is used.
+   * @param {object} target - The character who receives the attack.
+   */
   attack(target) {
     let index = generateRandomValue(this.skills.length - 1);
     let skill = this.skills[index];
     if (index === 4) {
       console.log(`OMG! ${this.name} is using its ultimate skill!`);
-      this.skills.splice(index, 1)
+      this.skills.splice(index, 1);
     }
     super.inflictDmg(target, skill);
   }
@@ -139,21 +143,21 @@ class Warrior extends Character {
       { name: "Astute", multiplier: 1.4 },
       { name: "Trigger Slash", multiplier: 1.5 },
       { name: "Rampage", multiplier: 1.8 },
-      { name: "Meteor Breaker", multiplier: 2.2 } // Ultimate skill
+      { name: "Meteor Breaker", multiplier: 2.2 }, // Ultimate skill
     ];
   }
 
   /**
- * Randomly selects a skill from the character's list of skills and inflicts
- * damage on a target, with a special message if the ultimate skill is used.
- * @param {object} target - The character who receives the attack.
- */
+   * Randomly selects a skill from the character's list of skills and inflicts
+   * damage on a target, with a special message if the ultimate skill is used.
+   * @param {object} target - The character who receives the attack.
+   */
   attack(target) {
     let skillIndex = generateRandomValue(this.skills.length - 1);
     let skill = this.skills[skillIndex];
     if (skillIndex === 4) {
       console.log(`OMG! ${this.name} is using its ultimate skill!`);
-      this.skills.splice(skillIndex, 1)
+      this.skills.splice(skillIndex, 1);
     }
     super.inflictDmg(target, skill);
   }
@@ -172,19 +176,19 @@ const characters = [
 let round = 1;
 
 // Main game lo
-while (characters.filter(char => char.isAlive()).length > 1) {
-  console.log(`Round ${round}:`);
+while (characters.filter((char) => char.isAlive()).length > 1) {
+  console.log(`Round ${round}:\n----------------------`);
 
   // Shuffle characters (Random)
   characters.sort(() => generateRandomValue(1) - 0.5);
 
   // Define alive characters and sort them by speed
-  let aliveCharacters = characters.filter(char => char.isAlive());
+  let aliveCharacters = characters.filter((char) => char.isAlive());
   aliveCharacters.sort((a, b) => b.spd - a.spd);
 
   for (let attacker of aliveCharacters) {
     // Find all alive characters except the attacker
-    let targets = aliveCharacters.filter(char => char !== attacker);
+    let targets = aliveCharacters.filter((char) => char !== attacker);
 
     // If all characters are dead, break the loop
     if (targets.length === 0) break; // If all characters are dead, break the loop
@@ -201,9 +205,11 @@ while (characters.filter(char => char.isAlive()).length > 1) {
 }
 
 // Find the winner
-let winner = characters.find(char => char.isAlive());
+let winner = characters.find((char) => char.isAlive());
 if (winner) {
-  console.log(`The winner is ${winner.name} with ${winner.hp.toFixed(0)} HP remaining!`);
+  console.log(
+    `The winner is ${winner.name} with ${winner.hp.toFixed(0)} HP remaining!`
+  );
 } else {
   console.log(`It's a draw!`);
 }
