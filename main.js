@@ -87,6 +87,8 @@ class Archer extends Character {
    * Randomly selects a skill from the character's list of skills and inflicts
    * damage on a target, with a special message if the ultimate skill is used.
    * @param {object} target - The character who receives the attack.
+   * If the skill selected is the ultimate skill, the skill is removed from the
+   * character's list of skills, preventing a new use.
    */
   attack(target) {
     let index = generateRandomValue(this.skills.length - 1);
@@ -119,6 +121,8 @@ class Mage extends Character {
    * Randomly selects a skill from the character's list of skills and inflicts
    * damage on a target, with a special message if the ultimate skill is used.
    * @param {object} target - The character who receives the attack.
+   * If the skill selected is the ultimate skill, the skill is removed from the
+   * character's list of skills, preventing a new use.
    */
   attack(target) {
     let index = generateRandomValue(this.skills.length - 1);
