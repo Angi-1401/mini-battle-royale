@@ -52,7 +52,8 @@ class Character {
     console.log(`----------------------`);
 
     if (!target.isAlive()) {
-      console.log(`${target.name} has fainted! :(\n----------------------`);
+      console.log(`${target.name} has fainted! :(`);
+      console.log(`----------------------`);
     }
   }
 
@@ -183,11 +184,15 @@ let round = 1;
 
 // Main game loop
 while (characters.filter((char) => char.isAlive()).length > 1) {
-  console.log(`Round ${round}:\n----------------------`);
+  console.log(`----------------------`);
+  console.log(`Round ${round}:`);
+  console.log(`----------------------`);
 
   // Define alive characters and sort them by speed
   let aliveCharacters = characters.filter((char) => char.isAlive());
-  aliveCharacters.sort((a, b) => b.spd - a.spd);
+  aliveCharacters.sort(
+    (a, b) => generateRandomValue(b.spd) - generateRandomValue(a.spd)
+  );
 
   for (let attacker of aliveCharacters) {
     // Find all alive characters except the attacker
