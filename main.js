@@ -76,11 +76,11 @@ class Archer extends Character {
   constructor(name) {
     super(name);
     this.skills = [
-      { name: "Power Shot", multiplier: 1.1 },
-      { name: "Bullseye", multiplier: 1.2 },
-      { name: "Arrow Rain", multiplier: 1.3 },
-      { name: "Snipe", multiplier: 1.5 },
-      { name: "Cross Fire", multiplier: 1.7 }, // Ultimate skill
+      { name: "Power Shot", multiplier: 1.7 },
+      { name: "Bullseye", multiplier: 2.3 },
+      { name: "Arrow Rain", multiplier: 2.5 },
+      { name: "Snipe", multiplier: 2.7 },
+      { name: "Cross Fire", multiplier: 3.0 }, // Ultimate skill
     ];
   }
 
@@ -110,11 +110,11 @@ class Mage extends Character {
   constructor(name) {
     super(name);
     this.skills = [
-      { name: "Magic: Arrows", multiplier: 1.1 },
-      { name: "Magic: Javeline", multiplier: 1.3 },
-      { name: "Magic: Lances", multiplier: 1.4 },
-      { name: "Magic: Impact", multiplier: 1.6 },
-      { name: "Magic: Finale", multiplier: 2.0 }, // Ultimate skill
+      { name: "Magic: Arrows", multiplier: 1.7 },
+      { name: "Magic: Javeline", multiplier: 2.3 },
+      { name: "Magic: Lances", multiplier: 2.5 },
+      { name: "Magic: Impact", multiplier: 2.7 },
+      { name: "Magic: Finale", multiplier: 3.0 }, // Ultimate skill
     ];
   }
 
@@ -144,11 +144,11 @@ class Warrior extends Character {
   constructor(name) {
     super(name);
     this.skills = [
-      { name: "Hard Hit", multiplier: 1.2 },
-      { name: "Astute", multiplier: 1.4 },
-      { name: "Trigger Slash", multiplier: 1.5 },
-      { name: "Rampage", multiplier: 1.8 },
-      { name: "Meteor Breaker", multiplier: 2.2 }, // Ultimate skill
+      { name: "Hard Hit", multiplier: 1.7 },
+      { name: "Astute", multiplier: 2.3 },
+      { name: "Trigger Slash", multiplier: 2.5 },
+      { name: "Rampage", multiplier: 2.7 },
+      { name: "Meteor Breaker", multiplier: 3.0 }, // Ultimate skill
     ];
   }
 
